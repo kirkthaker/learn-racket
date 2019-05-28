@@ -20,3 +20,22 @@
 
 (my-len-t empty)
 (my-len-t (list 1 2 3 4 5 6 7 8))
+
+; Applies function fun to every element of list lst
+(define (my-map fun lst)
+  (cond
+    [(empty? lst) lst]
+    [else (cons (fun (first lst)) (my-map fun (rest lst)))]))
+
+(my-map sqrt (list 1 4 9 16 25 36))
+
+; Applies function fun to every element of list lst
+; This function is tail recursive
+(define (my-map-t fun lst)
+  (define (aux fun lst acc)
+    (cond
+      [(empty? lst) (reverse acc)]
+      [else (aux fun (rest lst) (cons (fun (first lst)) acc))]))
+  (aux fun lst empty))
+
+(my-map-t sqrt (list 1 4 9 16))
