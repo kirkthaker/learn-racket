@@ -29,3 +29,4 @@
 (check-pass 123)
 (check-pass "pass")
 (check-pass "password")
+(check-pass "passWORd")
