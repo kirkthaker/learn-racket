@@ -39,3 +39,10 @@
   (aux fun lst empty))
 
 (my-map-t sqrt (list 1 4 9 16))
+
+; Removes *consecutive* duplicates from a list
+(define (remove-consec-dups lst)
+  (cond
+    [(empty? lst) empty]
+    [(equal? (my-len-t lst) 1) lst]
+    [else (list "yeet")]))
