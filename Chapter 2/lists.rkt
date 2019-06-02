@@ -45,4 +45,9 @@
   (cond
     [(empty? lst) empty]
     [(equal? (my-len-t lst) 1) lst]
-    [else (list "yeet")]))
+    [(equal? (first lst) (first (rest lst))) (remove-consec-dups (rest lst))]
+    [else (cons (first lst) (remove-consec-dups (rest lst)))]))
+
+(remove-consec-dups (list 1 1 1 2 2 3))
+(remove-consec-dups empty)
+(remove-consec-dups (list 1 2 3 4))
